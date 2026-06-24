@@ -1,0 +1,34 @@
+ChainToken.sol → ERC20 token for rewards
+QuestBadge.sol → ERC721 NFT for quest completion badges
+
+
+Next, we can move to Step 3: Quest Smart Contract to manage quest creation, joining, and on-chain
+Quest creation & management
+On-chain completion tracking
+Automatic CHAIN token rewards
+NFT badge minting
+u’ve got inside contracts/:
+
+hardhat.config.ts with networks (Hardhat, Localhost, Sepolia, Base)
+scripts/deploy.ts deploying ChainToken, QuestBadge, QuestManager and saving deployments/addresses.json
+.env.example for keys + initial supply
+Updated package.json + tsconfig.json
+All three contracts included for a one-shot deploy
+
+Quickstart:
+cd contracts
+npm install
+cp .env.example .env   # add PRIVATE_KEY + RPC keys
+npm run compile
+# local: npx hardhat node   (in another terminal)
+npm run deploy
+# testnets:
+npx hardhat run scripts/deploy.ts --network sepolia
+npx hardhat run scripts/deploy.ts --network base
+What’s included in subgraph/:
+
+schema.graphql → Entities: Quest, Completion, PlayerStat
+subgraph.yaml → Template with {{NETWORK}}, {{QUEST_MANAGER_ADDRESS}}, {{START_BLOCK}}
+src/mapping.ts → Handles QuestCreated and QuestCompleted
+abis/QuestManager.json → Minimal ABI for the events
+package.json + tsconfig.json + README.md → Graph CLI workflow
