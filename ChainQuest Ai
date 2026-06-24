@@ -1,0 +1,11 @@
+ChainQuest Ai
+
+It includes:
+
+* `contracts/` → Hardhat setup placeholder for EVM smart contracts
+* `frontend/` → Next.js + Tailwind starter placeholder
+* `backend/` → Node.js + TypeScript API placeholder
+* `subgraph/` → Graph Protocol integration placeholder
+* `ai-service/` → AI-powered quest generation/verification placeholder
+
+If you’re ready, I can move to **Step 2: Smart Contract Base (EVM ERC20 + ERC721 for rewards & badges)** so we can start making it functional.
