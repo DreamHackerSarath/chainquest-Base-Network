@@ -1,0 +1,22 @@
+# Generate a quest
+curl -s -X POST http://localhost:5001/generate -H "content-type: application/json" \
+  -d '{"theme":"bridge","difficulty":"medium","budget":120,"chainId":8453}'
+
+# Verify a quest by tx log (replace fields)
+curl -s -X POST http://localhost:5001/verify -H "content-type: application/json" -d '{
+  "spec": {
+    "title":"Say GM",
+    "description":"...",
+    "chainId":8453,
+    "rewardAmount":"50",
+    "badgeURI":"ipfs://badge",
+    "criteria": {
+      "kind":"evm:eventByTx",
+      "contract":"0xContractAddress",
+      "eventSignature":"GM(address)",
+      "args": { "sender":"$player" }
+    }
+  },
+  "player":"0xYourAddr",
+  "proof": { "txHash":"0xYourTxHash" }
+}'
